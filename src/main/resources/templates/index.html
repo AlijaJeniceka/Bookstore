@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bookstore</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .book-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .book {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px;
+            text-align: center;
+            width: 10%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .book img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .book-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<h1>Welcome to the bookstore!</h1>
+
+<div class="book-container">
+    <div th:each="book : ${books}" class="book">
+        <img src="https://ashmagautam.wordpress.com/wp-content/uploads/2013/11/mcj038257400001.jpg" alt="Book Image">
+        <div class="book-title" th:text="${book.name}">Book Name</div>
+    </div>
+
+</div>
+<div>
+        <span th:if="${currentPage > 0}">
+            <a th:href="@{books(page=${currentPage - 1}, size=50)}">Previous</a>
+        </span>
+    <span th:if="${books.size() == 50}">
+            <a th:href="@{books(page=${currentPage + 1}, size=50)}">Next</a>
+        </span>
+</div>
+
+</body>
+</html>
