@@ -5,9 +5,9 @@ Stores data in MySQL database from db4free.net (temporary database, that will be
 Tests written with Junit5 and Mockito.
 
 Endpoints: 
-http://localhost:8080/v1/books (view books with pagination (50 books in one page))
-http://localhost:8080/v1/admin/add   (admin-only page for adding books)
-http://localhost:8080/v2/books (view books with price in json format to pass it to e-commerce)
+http://localhost:8080/v1/books (view books with pagination (50 books in one page));
+http://localhost:8080/v1/admin/add   (admin-only page for adding books);
+http://localhost:8080/v2/books (view books with price in json format to pass it to e-commerce);
 http://localhost:8080/v2/books/{name} (PUT method to update the price of the book, body of the book must be provided and name provided in the api should be the same as in the provided body in json format.
 Example: { "name": "Name", "price": 19.99}
 
